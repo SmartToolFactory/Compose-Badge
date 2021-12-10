@@ -2,13 +2,17 @@ package com.smarttoolfactory.composebadge
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -34,6 +38,7 @@ fun BadgeSamples() {
 private fun Content() {
     Column(
         modifier = Modifier
+            .verticalScroll(rememberScrollState())
             .fillMaxSize()
             .padding(8.dp)
     ) {
@@ -123,6 +128,56 @@ private fun Content() {
         )
         Badge(badgeState = badge10)
 
+        Spacer(modifier = Modifier.height(10.dp))
+
+        val badge11 = rememberBadgeState(
+            fontSize = 40.sp,
+            textColor = Color.White,
+            horizontalPadding = 12.dp,
+            fontStyle = FontStyle.Italic,
+            shadow = MaterialShadow(
+                Color.DarkGray,
+                alpha = 0.8f,
+                dX = 6.dp,
+                dY = 3.dp,
+                shadowRadius = 9.dp
+            )
+        )
+        Badge(badgeState = badge11)
+        Spacer(modifier = Modifier.height(10.dp))
+
+        val badge12 = rememberBadgeState(
+            fontSize = 40.sp,
+            textColor = Color.White,
+            horizontalPadding = 12.dp,
+            fontWeight = FontWeight.ExtraBold,
+            shadow = MaterialShadow(
+                Color.DarkGray,
+                alpha = 0.6f,
+                dX = 5.dp,
+                dY = 5.dp,
+                shadowRadius = 1.dp
+            )
+        )
+        Badge(badgeState = badge12)
+        Spacer(modifier = Modifier.height(10.dp))
+
+        val badge13 = rememberBadgeState(
+            fontSize = 40.sp,
+            textColor = Color.White,
+            horizontalPadding = 12.dp,
+            textDecoration = TextDecoration.Underline,
+            shadow = MaterialShadow(
+                Color.DarkGray,
+                alpha = 0.9f,
+                dX = 2.dp,
+                dY = 2.dp,
+                shadowRadius = 6.dp
+            )
+        )
+        Badge(badgeState = badge13)
+        Spacer(modifier = Modifier.height(10.dp))
+
         val badgeStateList = listOf(
             badge1,
             badge2,
@@ -133,7 +188,10 @@ private fun Content() {
             badge7,
             badge8,
             badge9,
-            badge10
+            badge10,
+            badge11,
+            badge12,
+            badge13
         )
 
         LaunchedEffect(Unit) {
@@ -155,7 +213,7 @@ private fun TopAppbar() {
 
             TopAppBar(
                 title = {
-                    Text(text = "Custom Remember", color = Color.White)
+                    Text(text = "CustomBadge", color = Color.White)
                 },
                 backgroundColor = Color(0xff00897B),
                 elevation = 8.dp

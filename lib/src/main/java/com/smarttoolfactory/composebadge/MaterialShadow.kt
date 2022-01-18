@@ -120,9 +120,9 @@ fun Modifier.materialShadow(badgeState: BadgeState) = composed(
                        frameworkPaint.color = transparent
 
                        frameworkPaint.setShadowLayer(
+                           radius,
                            dx,
                            dy,
-                           radius,
                            shadowColor
                        )
 

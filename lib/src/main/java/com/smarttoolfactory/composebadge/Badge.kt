@@ -48,7 +48,7 @@ fun Badge(
 }
 
 @Composable
- fun BadgeComponent(badgeState: BadgeState, modifier: Modifier = Modifier) {
+private fun BadgeComponent(badgeState: BadgeState, modifier: Modifier = Modifier) {
 
     val badgeData = remember { BadgeData() }
 
